@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FNCS メジャー2 ヒートのグランドファイナル進出条件と23組をまとめた非公式ファンページ">
+  <title>【FNCS メジャー2】ヒート結果まとめ！グランドファイナル進出23組一覧</title>
+  <style>
+    :root {
+      --bg: #121214;
+      --panel: #1e1e24;
+      --panel-2: #18181d;
+      --line: #34343d;
+      --text: #eeeeF2;
+      --muted: #aaaab5;
+      --yellow: #fcd34d;
+      --cyan: #06b6d4;
+      --green: #5ee08a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: var(--cyan); }
+
+    .site-header {
+      border-top: 5px solid var(--yellow);
+      border-bottom: 1px solid var(--line);
+      background: #17171b;
+    }
+
+    .header-inner,
+    main,
+    .footer-inner {
+      width: min(1080px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .header-inner { padding: 34px 0 30px; }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 3px 9px;
+      color: #111;
+      background: var(--yellow);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      transform: rotate(-1deg);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(1.65rem, 4vw, 2.75rem);
+      line-height: 1.28;
+      letter-spacing: -.035em;
+    }
+
+    .subtitle {
+      margin: 11px 0 0;
+      color: #c5c5ce;
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      font-weight: 700;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    main { padding: 28px 0 52px; }
+
+    .rules {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .rules {
+      position: relative;
+      padding: 22px 24px;
+      border-left: 5px solid var(--yellow);
+      box-shadow: 5px 5px 0 #09090b;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -.02em;
+    }
+
+    .rules p { margin: 0; }
+    .rules strong { color: var(--yellow); }
+
+    .route {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .route-box {
+      flex: 1;
+      padding: 13px 14px;
+      background: #17171b;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .route-box b {
+      display: block;
+      color: var(--yellow);
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+
+    .route-plus {
+      align-self: center;
+      color: var(--muted);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin: 35px 0 12px;
+    }
+
+    .section-head h2 { margin: 0; }
+
+    .qualifier-count {
+      color: var(--muted);
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+
+    .qualifier-count strong { color: var(--cyan); }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 13px;
+      padding: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .tabs { display: flex; gap: 6px; }
+
+    button,
+    input { font: inherit; }
+
+    .tab {
+      cursor: pointer;
+      padding: 9px 13px;
+      color: #c8c8d0;
+      background: #151519;
+      border: 1px solid #3b3b44;
+      border-radius: 2px;
+      font-size: .84rem;
+      font-weight: 800;
+    }
+
+    .tab:hover { border-color: var(--cyan); }
+
+    .tab.active {
+      color: #101014;
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    .table-shell {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-size: .91rem;
+    }
+
+    th {
+      padding: 11px 13px;
+      color: #bdbdc8;
+      background: #17171c;
+      border-bottom: 2px solid #44444d;
+      font-size: .75rem;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    th.num, td.num { text-align: center; }
+
+    td {
+      padding: 12px 13px;
+      border-bottom: 1px solid #303038;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #24242b; }
+    tbody tr.cutline td {
+      border-bottom: 3px solid var(--yellow);
+    }
+    tbody tr.outside td { color: #a2a2ad; }
+    tbody tr.outside .rank { color: #777783; }
+
+    .rank {
+      color: var(--yellow);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .duo { font-weight: 800; }
+    .duo .amp { padding: 0 5px; color: #6b6b77; }
+    .duo small {
+      display: block;
+      color: #81818d;
+      font-size: .68rem;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .player { display: inline-block; vertical-align: middle; }
+
+    .tag {
+      display: inline-block;
+      min-width: 80px;
+      padding: 2px 7px;
+      color: #111;
+      background: var(--yellow);
+      border-radius: 2px;
+      font-size: .68rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .tag.points {
+      color: #061316;
+      background: var(--cyan);
+    }
+
+    .points-cell { font-weight: 900; }
+    .zero { color: #6f6f7a; }
+
+    .tiny-note {
+      margin: 9px 2px 0;
+      color: #858590;
+      font-size: .74rem;
+    }
+
+    footer {
+      background: #0d0d0f;
+      border-top: 1px solid #2d2d34;
+    }
+
+    .footer-inner {
+      padding: 24px 0 34px;
+      color: #898993;
+      font-size: .76rem;
+    }
+
+    .footer-inner p { margin: 4px 0; }
+
+    .back-top {
+      float: right;
+      text-decoration: none;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 680px) {
+      .header-inner { padding-top: 26px; }
+      .rules { padding: 18px; }
+      .route { gap: 6px; }
+      .route-box { padding: 10px 6px; font-size: .78rem; }
+      .route-box b { font-size: 1.25rem; }
+      .tools, .section-head { align-items: stretch; flex-direction: column; }
+      .tabs { display: grid; grid-template-columns: 1fr; width: 100%; }
+      .tab { padding-inline: 7px; }
+      td, th { padding-inline: 10px; }
+      .back-top { float: none; display: block; margin-bottom: 9px; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">FORTNITE COMPETITIVE / ASIA</p>
+      <h1>【FNCS メジャー2】ヒート結果Day1<br>グランドファイナル進出23組一覧</h1>
+      <p class="subtitle">ビクロイ枠5組 ＋ ポイント上位18組の進出条件と最終結果</p>
+      <div class="header-meta">
+        <span>最終更新：2026.07.25</span>
+        <span>作成者：KaN</span>
+        <span>引用元：Fortnite Tracker</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="rules" aria-labelledby="rules-title">
+      <h2 id="rules-title">グランドファイナル進出ルール</h2>
+      <p>
+        ヒート全5マッチで、各マッチの<strong>ビクロイ（1位）を取った5組はその場で進出確定</strong>。
+        さらに、ビクロイ通過組を除く累計ポイントの<strong>上位18組</strong>が加わり、合計23組がグランドファイナルへ進みます。
+      </p>
+      <div class="route" aria-label="進出枠の内訳">
+        <div class="route-box"><b>5組</b>各試合のビクロイ</div>
+        <div class="route-plus">＋</div>
+        <div class="route-box"><b>18組</b>累計ポイント上位</div>
+        <div class="route-plus">＝</div>
+        <div class="route-box"><b>23組</b>GF進出</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="qualified-title">
+      <div class="section-head">
+        <h2 id="qualified-title">ヒート最終順位</h2>
+        <div class="qualifier-count">表示中：<strong id="visibleCount">50</strong> / 50組</div>
+      </div>
+
+      <div class="tools">
+        <div class="tabs" role="tablist" aria-label="進出方法で絞り込み">
+          <button class="tab active" type="button" role="tab" aria-selected="true" data-filter="all">全50組</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-filter="qualified">進出圏（1〜23位）</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-filter="outside">ボーダー外（24〜50位）</button>
+        </div>
+      </div>
+
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th class="num">順位</th>
+              <th>デュオ名</th>
+              <th class="num">ポイント</th>
+              <th class="num">試合</th>
+              <th class="num">勝利</th>
+              <th class="num">平均撃破</th>
+              <th class="num">平均順位</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+            <tr data-type="qualified"><td class="num rank">1</td><td class="duo"><span class="player">ちからv2<small>DELTA esports</small></span><span class="amp">＋</span><span class="player">wickesy<small>orz Esports</small></span></td><td class="num points-cell">1,149</td><td class="num">5</td><td class="num">1</td><td class="num">6.20</td><td class="num">22.40</td></tr>
+            <tr data-type="qualified"><td class="num rank">2</td><td class="duo"><span class="player">ria<small>xRB</small></span><span class="amp">＋</span><span class="player">Tayler<small>Team ONYX</small></span></td><td class="num points-cell">1,127</td><td class="num">4</td><td class="num">1</td><td class="num">3.75</td><td class="num">9.50</td></tr>
+            <tr data-type="qualified"><td class="num rank">3</td><td class="duo">REJECT たろう<span class="amp">＋</span>Twitter chachaFN</td><td class="num points-cell">1,094</td><td class="num">3</td><td class="num">1</td><td class="num">7.33</td><td class="num">20.33</td></tr>
+            <tr data-type="qualified"><td class="num rank">4</td><td class="duo"><span class="player">RC tomat 魅</span><span class="amp">＋</span><span class="player">Mofu</span></td><td class="num points-cell">1,048</td><td class="num">2</td><td class="num">1</td><td class="num">5.00</td><td class="num">9.00</td></tr>
+            <tr data-type="qualified"><td class="num rank">5</td><td class="duo"><span class="player">yuzurio</span><span class="amp">＋</span><span class="player">bear<small>Baron Clan</small></span></td><td class="num points-cell">1,009</td><td class="num">1</td><td class="num">1</td><td class="num">3.00</td><td class="num">1.00</td></tr>
+            <tr data-type="qualified"><td class="num rank">6</td><td class="duo"><span class="player">Minipiyo<small>ZETA DIVISION</small></span><span class="amp">＋</span><span class="player">Fuukun<small>QT DIG</small></span></td><td class="num points-cell">266</td><td class="num">5</td><td class="num">0</td><td class="num">6.00</td><td class="num">9.20</td></tr>
+            <tr data-type="qualified"><td class="num rank">7</td><td class="duo"><span class="player">yuma<small>ZETA DIVISION</small></span><span class="amp">＋</span><span class="player">Koyota<small>ZETA DIVISION</small></span></td><td class="num points-cell">261</td><td class="num">5</td><td class="num">0</td><td class="num">5.00</td><td class="num">8.20</td></tr>
+            <tr data-type="qualified"><td class="num rank">8</td><td class="duo"><span class="player">むーん<small>orz Esports</small></span><span class="amp">＋</span><span class="player">Jaemon</span></td><td class="num points-cell">195</td><td class="num">5</td><td class="num">0</td><td class="num">2.60</td><td class="num">11.20</td></tr>
+            <tr data-type="qualified"><td class="num rank">9</td><td class="duo">めいる<span class="amp">＋</span>Choco</td><td class="num points-cell">189</td><td class="num">5</td><td class="num">0</td><td class="num">3.00</td><td class="num">12.80</td></tr>
+            <tr data-type="qualified"><td class="num rank">10</td><td class="duo"><span class="player">seljuny<small>Alpha</small></span><span class="amp">＋</span><span class="player">p1ng</span></td><td class="num points-cell">174</td><td class="num">5</td><td class="num">0</td><td class="num">3.20</td><td class="num">19.40</td></tr>
+            <tr data-type="qualified"><td class="num rank">11</td><td class="duo"><span class="player">たら<small>VOLARE</small></span><span class="amp">＋</span><span class="player">みやぐらーる<small>orz Esports</small></span></td><td class="num points-cell">155</td><td class="num">5</td><td class="num">0</td><td class="num">3.00</td><td class="num">21.60</td></tr>
+            <tr data-type="qualified"><td class="num rank">12</td><td class="duo"><span class="player">Rainy<small>DetonatioN FocusMe</small></span><span class="amp">＋</span><span class="player">Nalu<small>KIT StarLeven KYUSHU</small></span></td><td class="num points-cell">145</td><td class="num">5</td><td class="num">0</td><td class="num">2.20</td><td class="num">15.60</td></tr>
+            <tr data-type="qualified"><td class="num rank">13</td><td class="duo">S2 まぐろいちはなげーぴょいん<span class="amp">＋</span>Ritsu</td><td class="num points-cell">142</td><td class="num">5</td><td class="num">0</td><td class="num">1.20</td><td class="num">16.80</td></tr>
+            <tr data-type="qualified"><td class="num rank">14</td><td class="duo"><span class="player">ONYX KatEvolved</span><span class="amp">＋</span><span class="player">りんたろう<small>Team ONYX</small></span></td><td class="num points-cell">139</td><td class="num">5</td><td class="num">0</td><td class="num">1.80</td><td class="num">14.80</td></tr>
+            <tr data-type="qualified"><td class="num rank">15</td><td class="duo"><span class="player">Noa<small>orz Esports</small></span><span class="amp">＋</span><span class="player">riemu<small>HST</small></span></td><td class="num points-cell">128</td><td class="num">5</td><td class="num">0</td><td class="num">2.80</td><td class="num">28.80</td></tr>
+            <tr data-type="qualified"><td class="num rank">16</td><td class="duo">IGNUM nikaGOTY7<span class="amp">＋</span>Lit えるん sahur</td><td class="num points-cell">127</td><td class="num">5</td><td class="num">0</td><td class="num">3.40</td><td class="num">23.20</td></tr>
+            <tr data-type="qualified"><td class="num rank">17</td><td class="duo"><span class="player">xMipoli<small>KIT StarLeven KYUSHU</small></span><span class="amp">＋</span><span class="player">Shelom<small>ENTER FORCE.36</small></span></td><td class="num points-cell">119</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">16.40</td></tr>
+            <tr data-type="qualified"><td class="num rank">18</td><td class="duo"><span class="player">LEO<small>NEXUS</small></span><span class="amp">＋</span><span class="player">ZAZI<small>LYNX e-sports</small></span></td><td class="num points-cell">119</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">20.20</td></tr>
+            <tr data-type="qualified"><td class="num rank">19</td><td class="duo"><span class="player">Kame<small>KIT StarLeven KYUSHU</small></span><span class="amp">＋</span><span class="player">RqzrIm3 喰</span></td><td class="num points-cell">115</td><td class="num">5</td><td class="num">0</td><td class="num">1.80</td><td class="num">21.60</td></tr>
+            <tr data-type="qualified"><td class="num rank">20</td><td class="duo"><span class="player">Raeyache<small>NLT 1st</small></span><span class="amp">＋</span><span class="player">Noel</span></td><td class="num points-cell">103</td><td class="num">5</td><td class="num">0</td><td class="num">1.40</td><td class="num">22.00</td></tr>
+            <tr data-type="qualified"><td class="num rank">21</td><td class="duo"><span class="player">ぜのぽったー</span><span class="amp">＋</span><span class="player">ばぶっち<small>HELIX</small></span></td><td class="num points-cell">102</td><td class="num">5</td><td class="num">0</td><td class="num">1.60</td><td class="num">22.00</td></tr>
+            <tr data-type="qualified"><td class="num rank">22</td><td class="duo">wcr pollofn6<span class="amp">＋</span>NŁT Pollofn6</td><td class="num points-cell">102</td><td class="num">5</td><td class="num">0</td><td class="num">1.20</td><td class="num">18.60</td></tr>
+            <tr class="cutline" data-type="qualified"><td class="num rank">23</td><td class="duo"><span class="player">kumo</span><span class="amp">＋</span><span class="player">Reim<small>xRB</small></span></td><td class="num points-cell">101</td><td class="num">5</td><td class="num">0</td><td class="num">1.80</td><td class="num">18.60</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">24</td><td class="duo">brnw 迷ーとないと<span class="amp">＋</span>zst merea2k-</td><td class="num points-cell">99</td><td class="num">5</td><td class="num">0</td><td class="num">2.20</td><td class="num">24.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">25</td><td class="duo">復活の無意識あいむらま 初動必勝<span class="amp">＋</span>DiggerKovaaks</td><td class="num points-cell">95</td><td class="num">5</td><td class="num">0</td><td class="num">1.80</td><td class="num">25.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">26</td><td class="duo"><span class="player">steamywiny</span><span class="amp">＋</span><span class="player">EDGE Unger</span></td><td class="num points-cell">88</td><td class="num">5</td><td class="num">0</td><td class="num">1.60</td><td class="num">23.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">27</td><td class="duo"><span class="player">Mikan<small>Team ONYX</small></span><span class="amp">＋</span><span class="player">ゆの<small>NLT 1st</small></span></td><td class="num points-cell">85</td><td class="num">5</td><td class="num">0</td><td class="num">1.40</td><td class="num">24.00</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">28</td><td class="duo"><span class="player">Raito<small>EDGE</small></span><span class="amp">＋</span><span class="player">Razl<small>Crazy Raccoon</small></span></td><td class="num points-cell">84</td><td class="num">5</td><td class="num">0</td><td class="num">2.40</td><td class="num">26.60</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">29</td><td class="duo">FPG pAndaǃǃ<span class="amp">＋</span>FPG ｱｲﾗｲﾄ ﾏﾝﾏﾐ-ｱ</td><td class="num points-cell">84</td><td class="num">5</td><td class="num">0</td><td class="num">1.20</td><td class="num">19.80</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">30</td><td class="duo">Nastor74ǃ<span class="amp">＋</span>krmrzfvǃ</td><td class="num points-cell">63</td><td class="num">5</td><td class="num">0</td><td class="num">1.80</td><td class="num">35.00</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">31</td><td class="duo">IGNUM Mr.Rirkday<span class="amp">＋</span>BoF べった</td><td class="num points-cell">63</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">29.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">32</td><td class="duo">invia伊藤大貴論破電磁波攻撃<span class="amp">＋</span>ATRCT 五条パイナップル</td><td class="num points-cell">61</td><td class="num">5</td><td class="num">0</td><td class="num">1.40</td><td class="num">29.80</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">33</td><td class="duo">ちこへにょw<span class="amp">＋</span>fctfn</td><td class="num points-cell">60</td><td class="num">5</td><td class="num">0</td><td class="num">0.80</td><td class="num">29.60</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">34</td><td class="duo">dyd シンプル編集のぷりなの<span class="amp">＋</span>交通部第三交通機動隊小隊長割り算</td><td class="num points-cell">59</td><td class="num">5</td><td class="num">0</td><td class="num">1.40</td><td class="num">29.20</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">35</td><td class="duo">FPG ハイグラクア<span class="amp">＋</span>さるだじょ</td><td class="num points-cell">59</td><td class="num">5</td><td class="num">0</td><td class="num">1.40</td><td class="num">32.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">36</td><td class="duo"><span class="player">3peace<small>NEXUS</small></span><span class="amp">＋</span><span class="player">RyoIT</span></td><td class="num points-cell">58</td><td class="num">5</td><td class="num">0</td><td class="num">1.60</td><td class="num">28.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">37</td><td class="duo">宇宙HERO<span class="amp">＋</span>Acris shxrkǃ</td><td class="num points-cell">49</td><td class="num">5</td><td class="num">0</td><td class="num">1.80</td><td class="num">31.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">38</td><td class="duo">りっく 朝凪海qt<span class="amp">＋</span>ptt Riyotafnbr</td><td class="num points-cell">49</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">28.60</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">39</td><td class="duo"><span class="player">ℭhrome くりたるǃ</span><span class="amp">＋</span><span class="player">Silent<small>NLT 1st</small></span></td><td class="num points-cell">43</td><td class="num">5</td><td class="num">0</td><td class="num">0.60</td><td class="num">33.20</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">40</td><td class="duo"><span class="player">PONY<small>QT DIG</small></span><span class="amp">＋</span><span class="player">blaze</span></td><td class="num points-cell">40</td><td class="num">5</td><td class="num">0</td><td class="num">1.20</td><td class="num">33.80</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">41</td><td class="duo">Cue.でーもんくまてぃん<span class="amp">＋</span>ftw mwuxz</td><td class="num points-cell">39</td><td class="num">5</td><td class="num">0</td><td class="num">0.20</td><td class="num">28.20</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">42</td><td class="duo">MV maarxyz._.<span class="amp">＋</span>Mv.Mvいっきでイクるーがイク</td><td class="num points-cell">31</td><td class="num">5</td><td class="num">0</td><td class="num">0.60</td><td class="num">30.00</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">43</td><td class="duo">にゃおぱおーん ʕᵔᴥᵔʔ<span class="amp">＋</span>KЁЯΙS rianyfnbr</td><td class="num points-cell">29</td><td class="num">5</td><td class="num">0</td><td class="num">1.40</td><td class="num">30.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">44</td><td class="duo"><span class="player">ひょっこりもりりん<small>Baron Clan</small></span><span class="amp">＋</span><span class="player">UC.hamu</span></td><td class="num points-cell">29</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">31.60</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">45</td><td class="duo">AXIS れりと<span class="amp">＋</span>SH ゆずし</td><td class="num points-cell">25</td><td class="num">5</td><td class="num">0</td><td class="num">0.60</td><td class="num">32.40</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">46</td><td class="duo">favsie<span class="amp">＋</span>UC.ぽぽ</td><td class="num points-cell">23</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">30.60</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">47</td><td class="duo">kinoko4x<span class="amp">＋</span>Zst あおやちぇ</td><td class="num points-cell">23</td><td class="num">5</td><td class="num">0</td><td class="num">0.60</td><td class="num">32.80</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">48</td><td class="duo">ecs curve むri<span class="amp">＋</span>CH.Muri 姫</td><td class="num points-cell">21</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">32.80</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">49</td><td class="duo"><span class="player">IGNUM ひげなのǃ</span><span class="amp">＋</span><span class="player">ruca.<small>Alpha</small></span></td><td class="num points-cell">15</td><td class="num">5</td><td class="num">0</td><td class="num">1.00</td><td class="num">34.80</td></tr>
+            <tr class="outside" data-type="outside"><td class="num rank">50</td><td class="duo"><span class="player">Qjac<small>Crazy Raccoon</small></span><span class="amp">＋</span><span class="player">らーく<small>Team ONYX</small></span></td><td class="num points-cell">6</td><td class="num">5</td><td class="num">0</td><td class="num">0.40</td><td class="num">42.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tiny-note">※黄色のラインがグランドファイナル進出ボーダー。23位までが進出圏です。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a class="back-top" href="#top">↑ ページ上部へ</a>
+      <p>※個人による非公式まとめです。Epic Games および Fortnite 公式とは関係ありません。</p>
+      <p>※勝敗結果はゲーム内リプレイ・公式サイト・Fortnite Tracker の公開情報を基準に確認します。</p>
+      <p>FORTNITE は Epic Games, Inc. の商標です。</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll(".tab")];
+      const rows = [...document.querySelectorAll("#resultsBody tr")];
+      const count = document.getElementById("visibleCount");
+      let activeFilter = "all";
+
+      function updateResults() {
+        let visible = 0;
+
+        rows.forEach(row => {
+          const matchesTab = activeFilter === "all" || row.dataset.type === activeFilter;
+          const show = matchesTab;
+          row.hidden = !show;
+          if (show) visible++;
+        });
+
+        count.textContent = visible;
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          activeFilter = tab.dataset.filter;
+          tabs.forEach(item => {
+            const selected = item === tab;
+            item.classList.toggle("active", selected);
+            item.setAttribute("aria-selected", selected);
+          });
+          updateResults();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
