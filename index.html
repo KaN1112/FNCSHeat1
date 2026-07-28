@@ -55,6 +55,7 @@
     .border-note{margin:8px 2px 0;color:#858590;font-size:.75rem}
     .qualifier-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .qualifier-group{background:var(--panel);border:1px solid var(--line)}
+    .qualifier-group:last-child{grid-column:1/-1}
     .qualifier-group h3{margin:0;padding:12px 14px;background:var(--panel2);border-bottom:1px solid var(--line);font-size:1rem}
     .qualifier-group h3 span{color:var(--cyan);font-size:.74rem}
     .qualifier-list{margin:0;padding:0;list-style:none}
@@ -80,37 +81,38 @@
   <header>
     <div class="wrap">
       <p class="eyebrow">FORTNITE COMPETITIVE / ASIA</p>
-      <h1>【FNCS メジャー2】ヒート1日目・2日目結果<br>＆グランドファイナル進出46組</h1>
-      <p class="subtitle">両日の最終順位100組と、ヒート通過メンバーをまとめて確認</p>
-      <div class="meta"><span>最終更新：2026.07.26</span><span>アジア地域</span><span>ヒート終了時点</span></div>
+      <h1>【FNCS メジャー2】ヒート＆ラストチャンス結果<br>グランドファイナル進出50組が決定！</h1>
+      <p class="subtitle">ヒート両日とラストチャンスの最終結果、GF出場メンバーをまとめて確認</p>
+      <div class="meta"><span>最終更新：2026.07.28</span><span>アジア地域</span><span>GF出場50組確定</span></div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="summary">
       <h2>グランドファイナルは全50組</h2>
-      <p>ヒート1日目と2日目から各23組、ラストチャンス決勝のビクロイ4組が進出します。</p>
+      <p>ヒート1日目と2日目から各23組、ラストチャンス決勝のビクロイ4組を加えた全50組が出揃いました。</p>
       <div class="slots">
         <div class="slot"><b>23組</b>ヒート1日目</div><span class="plus">＋</span>
         <div class="slot"><b>23組</b>ヒート2日目</div><span class="plus">＋</span>
         <div class="slot"><b>4組</b>ラストチャンス</div><span class="plus">＝</span>
         <div class="slot"><b>50組</b>GF出場</div>
       </div>
-      <div class="deadline"><b>残り4枠：</b>ラストチャンス予選は7月27日、決勝は7月28日。決勝でビクロイを取った4組が進出。</div>
+      <div class="deadline"><b>次はグランドファイナル：</b>ここから世界大会進出2枠が決定。残り1枠は「グローバルチャンピオンシップ ラストチャンス」で決まります。</div>
     </section>
 
     <nav class="view-tabs" aria-label="表示内容">
       <button class="view-tab active" data-view="heat" data-heat="day1" aria-selected="true">ヒート1日目 最終順位（50組）</button>
       <button class="view-tab" data-view="heat" data-heat="day2" aria-selected="false">ヒート2日目 最終順位（50組）</button>
-      <button class="view-tab" data-view="finalists" aria-selected="false">GF進出確定メンバー（46組）</button>
+      <button class="view-tab" data-view="heat" data-heat="lastChance" aria-selected="false">ラストチャンス結果（48組）</button>
+      <button class="view-tab" data-view="finalists" aria-selected="false">GF進出確定メンバー（50組）</button>
     </nav>
 
     <section id="heatView">
       <div class="section-head"><h2 id="heatTitle">ヒート1日目 最終順位</h2><div class="count">表示中：<strong id="heatCount">50</strong> / 50組</div></div>
       <div class="filter-tabs">
-        <button class="filter-tab active" data-filter="all">全50組</button>
-        <button class="filter-tab" data-filter="qualified">進出圏（1〜23位）</button>
-        <button class="filter-tab" data-filter="outside">ボーダー外（24〜50位）</button>
+        <button class="filter-tab active" id="filterAll" data-filter="all">全50組</button>
+        <button class="filter-tab" id="filterQualified" data-filter="qualified">進出圏（1〜23位）</button>
+        <button class="filter-tab" id="filterOutside" data-filter="outside">ボーダー外（24〜50位）</button>
       </div>
       <div class="table-shell">
         <table>
@@ -118,16 +120,15 @@
           <tbody id="heatBody"></tbody>
         </table>
       </div>
-      <p class="border-note">※黄色のラインがグランドファイナル進出ボーダー。23位までが進出圏です。</p>
+      <p class="border-note" id="borderNote">※黄色のラインがグランドファイナル進出ボーダー。23位までが進出圏です。</p>
     </section>
 
     <section id="finalistsView" hidden>
-      <div class="section-head"><h2>グランドファイナル進出確定 46組</h2><div class="count"><strong>46</strong> / 最終50組</div></div>
+      <div class="section-head"><h2>グランドファイナル進出確定 50組</h2><div class="count"><strong>50</strong> / 50組</div></div>
       <div class="qualifier-grid">
-        <section class="qualifier-group"><h3>ヒート1日目 <span>23組</span></h3><ol class="qualifier-list" id="day1Qualifiers"></ol></section>
-        <section class="qualifier-group"><h3>ヒート2日目 <span>23組</span></h3><ol class="qualifier-list" id="day2Qualifiers"></ol></section>
+        <section class="qualifier-group"><h3>グランドファイナル出場デュオ <span>全50組</span></h3><ol class="qualifier-list" id="finalQualifiers"></ol></section>
       </div>
-      <div class="deadline"><b>残り4組は未確定：</b>7月28日のラストチャンス決勝で各マッチのビクロイを取った4組が最後の枠を獲得します。</div>
+      <div class="deadline"><b>GF出場50組が確定：</b>グランドファイナル上位2組が世界大会へ。もう1組はグローバルチャンピオンシップ ラストチャンスから進出します。</div>
     </section>
   </main>
 
@@ -240,6 +241,57 @@
       ["Zst たいたい","モバイル勢のまかろん|Baron Clan","6",5,0,"0.40","45.00"]
     ];
 
+    const lastChance = [
+      ["3peace|NEXUS","RyoIT","1,044",3,1,"3.33","14.67"],
+      ["Karf 7","uptemp|Lizer Esports","1,000",1,1,"12.00","1.00"],
+      ["peterpadǃǃ","Val 666","1,000",2,1,"4.00","17.00"],
+      ["Fraymy|xRB","PR200でcalm報酬800円","1,000",4,1,"1.25","22.50"],
+      ["Zst たいたい","CRPS","148",4,0,"3.75","9.00"],
+      ["Ame","さんげん","130",4,0,"3.00","12.50"],
+      ["pegu","えいぶか|S2","126",4,0,"4.25","11.00"],
+      ["Rise|Riddle","らーく|Team ONYX","124",4,0,"3.00","10.50"],
+      ["Qjac|Crazy Raccoon","aur narya 3ǃ","116",4,0,"2.25","12.75"],
+      ["りっく 朝凪海qt","ptt Riyotafnbr","108",4,0,"3.75","12.50"],
+      ["Reaper|NEXUS","こいる","108",4,0,"3.50","13.50"],
+      ["R1ze|HELIX","Silent|NLT 1st","96",4,0,"1.25","16.50"],
+      ["Mikan|Team ONYX","Azamaru|OBI E-sports","94",4,0,"2.25","15.00"],
+      ["ZST mxntxs 19ǃ","CLOUD hazyǃ","92",4,0,"3.50","15.25"],
+      ["Zagou","Taiya|NEXUS","92",4,0,"2.50","14.50"],
+      ["Razl|Crazy Raccoon","Job|Crazy Raccoon","88",4,0,"3.00","15.00"],
+      ["twis hero 88ǃ","さえたが冴えたWWW","86",4,0,"2.50","19.75"],
+      ["HST-O マイキーリブリアン","IGNUM Shirokaǃ","82",4,0,"2.50","17.75"],
+      ["SayarA|A1st","えるし|S2","80",4,0,"2.00","23.00"],
+      ["Blue_P mell 黒狼","KC LARK","76",4,0,"2.50","20.25"],
+      ["FCT 波乗りペンギン","おかっぱがふ子|gents","72",4,0,"1.00","19.25"],
+      ["zagouの弟|NLT 1st","しゅんコロ|HST","72",4,0,"1.00","19.25"],
+      ["LYNX-Y ぴーちKhabib","LYNX-Y えあるやけん","70",4,0,"3.00","18.75"],
+      ["Zst あおやちぇ","LYNX-Y C-RA 73","68",4,0,"1.00","18.25"],
+      ["ばななv2ǃǃ","FTW CLUTCHあーる","58",4,0,"0.50","22.75"],
+      ["RAI|LYNX e-sports","rakirye|LYNX e-sports","56",4,0,"1.25","22.00"],
+      ["あくりあ|gents","Asuka|VOLARE","50",4,0,"2.00","21.25"],
+      ["ひょっこりもりりん|Baron Clan","PartyGirl","48",4,0,"2.50","25.25"],
+      ["wsr guppafvǃ 19","xRB 影の無いヒト","48",4,0,"2.00","23.25"],
+      ["OBI ϟ さばべるやでǃǃ ϟ","fct vexfbjvn","48",4,0,"1.25","28.50"],
+      ["Cue 桜オロチ","CueПоследнийшанс","30",4,0,"1.75","31.00"],
+      ["FPG ハイグラクア","さるだじょ","26",4,0,"0.75","29.75"],
+      ["SwickeY","HAYATO|Baron Clan","24",4,0,"1.00","29.50"],
+      ["joker 狂威","恋をしているみたいなの","24",4,0,"0.25","29.25"],
+      ["しょうごとてっしん","blaze","22",4,0,"2.00","33.00"],
+      ["PONY|QT DIG","Tossy","20",4,0,"0.75","31.50"],
+      ["brnw 迷ーとないと","zst merea2k-","18",4,0,"0.75","28.25"],
+      ["ptt ゆらピクミン","ptt かいばぶ だっちゃろーǃ","10",4,0,"0.50","28.00"],
+      ["IGNITE.はるたん","EGK わーぽ","10",4,0,"0.50","28.25"],
+      ["dyd zea sc","calm rarorfn","8",4,0,"0.50","33.00"],
+      ["IPF ウンǃボクつよいǃ","まぁまぁなラまぁさん","6",4,0,"1.00","36.00"],
+      ["pj4wpf7xxk9","Lets Peter","2",3,0,"0.00","34.67"],
+      ["醤油とみりんを少々","S2 shxrkǃ","0",4,0,"2.75","28.75"],
+      ["SPE Salvatore","ドライ ロマネコンティ","0",3,0,"0.67","31.33"],
+      ["frs fumu","NTX たけし818","0",4,0,"0.50","35.75"],
+      ["タイ飛んでみた","Gitsugod 23ǃ","0",4,0,"0.00","41.00"],
+      ["8x8ぼぶだっちゃ","ZAKURo0O","0",1,0,"0.00","41.00"],
+      ["なつあいせぶん","CA Botえもん -ω-","0",1,0,"0.00","43.00"]
+    ];
+
     const playerHTML = value => {
       const [name, org] = value.split("|");
       return `<span class="player">${name}${org ? `<small>${org}</small>` : ""}</span>`;
@@ -257,32 +309,42 @@
       document.getElementById("heatCount").textContent = visible;
     };
 
-    const renderHeat = (teams, dayNumber) => {
+    const renderEvent = (teams, title, cutoff) => {
       body.innerHTML = "";
       teams.forEach((team, index) => {
         const rank = index + 1;
         const row = document.createElement("tr");
-        row.dataset.type = rank <= 23 ? "qualified" : "outside";
-        if (rank === 23) row.className = "cutline";
-        if (rank > 23) row.className = "outside";
+        row.dataset.type = rank <= cutoff ? "qualified" : "outside";
+        if (rank === cutoff) row.className = "cutline";
+        if (rank > cutoff) row.className = "outside";
         row.innerHTML = `<td class="num rank">${rank}</td><td class="duo">${playerHTML(team[0])}<span class="amp">＋</span>${playerHTML(team[1])}</td><td class="num points">${team[2]}</td><td class="num">${team[3]}</td><td class="num">${team[4]}</td><td class="num">${team[5]}</td><td class="num">${team[6]}</td>`;
         body.appendChild(row);
       });
-      document.getElementById("heatTitle").textContent = `ヒート${dayNumber}日目 最終順位`;
+      document.getElementById("heatTitle").textContent = title;
+      document.getElementById("filterAll").textContent = `全${teams.length}組`;
+      document.getElementById("filterQualified").textContent = `進出（1〜${cutoff}位）`;
+      document.getElementById("filterOutside").textContent = `ボーダー外（${cutoff + 1}〜${teams.length}位）`;
+      document.getElementById("borderNote").textContent = cutoff === 4
+        ? "※ラストチャンスは各マッチのビクロイ4組がGF進出。黄色のラインまでが通過です。"
+        : "※黄色のラインがグランドファイナル進出ボーダー。23位までが進出圏です。";
       const activeFilter = document.querySelector(".filter-tab.active").dataset.filter;
       applyFilter(activeFilter);
     };
 
-    const renderQualifiers = (target, teams) => {
+    const renderQualifiers = (target, teams, vrCount = 5) => {
       teams.forEach((team, index) => {
         const item = document.createElement("li");
-        item.innerHTML = `<span class="qrank">${index + 1}</span><span class="qname">${playerHTML(team[0])}<span class="amp">＋</span>${playerHTML(team[1])}</span>${index < 5 ? '<span class="vr">VR</span>' : ""}`;
+        item.innerHTML = `<span class="qrank">${index + 1}</span><span class="qname">${playerHTML(team[0])}<span class="amp">＋</span>${playerHTML(team[1])}</span>${index < vrCount ? '<span class="vr">VR</span>' : ""}`;
         target.appendChild(item);
       });
     };
-    renderQualifiers(document.getElementById("day1Qualifiers"), day1.slice(0,23));
-    renderQualifiers(document.getElementById("day2Qualifiers"), day2.slice(0,23));
-    renderHeat(day1, 1);
+    const grandFinalists = [
+      ...day1.slice(0,23),
+      ...day2.slice(0,23),
+      ...lastChance.slice(0,4)
+    ];
+    renderQualifiers(document.getElementById("finalQualifiers"), grandFinalists, 0);
+    renderEvent(day1, "ヒート1日目 最終順位", 23);
 
     document.querySelectorAll(".view-tab").forEach(tab => {
       tab.addEventListener("click", () => {
@@ -293,8 +355,9 @@
         });
         document.getElementById("heatView").hidden = tab.dataset.view !== "heat";
         document.getElementById("finalistsView").hidden = tab.dataset.view !== "finalists";
-        if (tab.dataset.heat === "day1") renderHeat(day1, 1);
-        if (tab.dataset.heat === "day2") renderHeat(day2, 2);
+        if (tab.dataset.heat === "day1") renderEvent(day1, "ヒート1日目 最終順位", 23);
+        if (tab.dataset.heat === "day2") renderEvent(day2, "ヒート2日目 最終順位", 23);
+        if (tab.dataset.heat === "lastChance") renderEvent(lastChance, "ラストチャンス決勝 最終結果", 4);
       });
     });
 
